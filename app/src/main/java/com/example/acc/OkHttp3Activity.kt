@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,7 +22,7 @@ import java.io.IOException
 class OkHttp3Activity : AppCompatActivity() {
 
 
-    private lateinit var binding: AacActivityBinding
+    private lateinit var binding: AacActivityBinding // ActivityMainBinding
     private lateinit var viewModel: AccViewModel
 
 
@@ -59,7 +60,7 @@ class OkHttp3Activity : AppCompatActivity() {
                     swipeRefreshLayout.isRefreshing = false
                 }
             })
-            isShownProgress.observe(this@AccActivity, Observer {
+            isShownProgress.observe(this@OkHttp3Activity, Observer {
                 if (it)
                     showProgress()
                 else
@@ -81,7 +82,7 @@ class OkHttp3Activity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        recyclerView.apply {
+        binding.recyclerView.apply {
             adapter = customAdapter
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context)

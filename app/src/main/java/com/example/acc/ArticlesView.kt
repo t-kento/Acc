@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.acc.databinding.ArticleCellBinding
 import com.example.okhttp3.OkHttpItem
 
 class ArticlesView: RecyclerView {
@@ -47,7 +48,7 @@ class ArticlesView: RecyclerView {
 
         private fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
             val data = items[position]
-            holder.binding.qiitaResponse = data
+//            holder.binding.qiitaResponse = data
         }
 
         class ItemViewHolder(val binding: ArticleCellBinding): RecyclerView.ViewHolder(binding.root)
